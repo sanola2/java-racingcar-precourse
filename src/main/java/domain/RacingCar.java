@@ -7,7 +7,7 @@ public class RacingCar {
 		return moveCount;
 	}
 
-	public void moveForward(int randomNumber) {
+	public void move(int randomNumber) {
 		if (randomNumber >= 4) {
 			this.moveCount++;
 		}
