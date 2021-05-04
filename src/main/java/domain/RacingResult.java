@@ -8,4 +8,8 @@ public class RacingResult {
 	public RacingResult(List<RacingTries> racingResult) {
 		this.racingResult = racingResult;
 	}
+
+	public List<RacingTries> getRacingResult() {
+		return racingResult;
+	}
 }
