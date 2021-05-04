@@ -14,7 +14,7 @@ public class RacingCarTest {
 
 	@BeforeEach
 	void init() {
-		racingCar = new RacingCar();
+		racingCar = new RacingCar("benz");
 	}
 
 	@ParameterizedTest

@@ -4,9 +4,6 @@ public class RacingCar {
 	private int moveCount = 0;
 	private String name;
 
-	public RacingCar() {
-	}
-
 	public RacingCar(String carName) {
 		this.setName(carName);
 	}
