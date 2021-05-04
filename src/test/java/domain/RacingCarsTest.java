@@ -13,7 +13,7 @@ public class RacingCarsTest {
 	@BeforeEach
 	void init() {
 		String inputNames = "bmw,benz,volvo";
-		racingCars = new RacingCars(inputNames);
+		racingCars = new RacingCars(inputNames, 5);
 	}
 
 	@Test
@@ -22,5 +22,14 @@ public class RacingCarsTest {
 		assertThat(racingCars.getRacingCars().get(0).getName()).isEqualTo("bmw");
 		assertThat(racingCars.getRacingCars().get(1).getName()).isEqualTo("benz");
 		assertThat(racingCars.getRacingCars().get(2).getName()).isEqualTo("volvo");
+	}
+
+	@Test
+	@DisplayName("입력 받은 횟수만큼 자동차를 동작 시킨다")
+	void executionCountTest() {
+		racingCars.driveCars(5);
+		assertThat(racingCars.getRacingCars().get(0).getFuel()).isEqualTo(0);
+		assertThat(racingCars.getRacingCars().get(1).getFuel()).isEqualTo(0);
+		assertThat(racingCars.getRacingCars().get(2).getFuel()).isEqualTo(0);
 	}
 }

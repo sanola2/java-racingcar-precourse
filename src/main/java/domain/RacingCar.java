@@ -3,9 +3,11 @@ package domain;
 public class RacingCar {
 	private int moveCount = 0;
 	private String name;
+	private int fuel;
 
-	public RacingCar(String carName) {
+	public RacingCar(String carName, int fuel) {
 		this.setName(carName);
+		this.fuel = fuel;
 	}
 
 	public int getMoveCount() {
@@ -16,6 +18,8 @@ public class RacingCar {
 		if (randomNumber >= 4) {
 			this.moveCount++;
 		}
+
+		this.fuel--;
 	}
 
 	public String getName() {
@@ -31,5 +35,9 @@ public class RacingCar {
 		if (inputName.length() > 5) {
 			throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다");
 		}
+	}
+
+	public int getFuel() {
+		return fuel;
 	}
 }

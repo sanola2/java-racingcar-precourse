@@ -14,7 +14,7 @@ public class RacingCarTest {
 
 	@BeforeEach
 	void init() {
-		racingCar = new RacingCar("benz");
+		racingCar = new RacingCar("benz", 3);
 	}
 
 	@ParameterizedTest
@@ -39,7 +39,7 @@ public class RacingCarTest {
 	@DisplayName("자동차는 이름을 가질 수 있다")
 	void name() {
 		String carName = "bmw";
-		RacingCar bmw = new RacingCar(carName);
+		RacingCar bmw = new RacingCar(carName, 3);
 		assertThat(bmw.getName()).isEqualTo(carName);
 	}
 
@@ -47,7 +47,7 @@ public class RacingCarTest {
 	@DisplayName("자동차는 5자 이하의 이름만 가질 수 있다")
 	void nameLimitedUnder5() {
 		String carName = "ferrari";
-		assertThatThrownBy(() -> new RacingCar(carName))
+		assertThatThrownBy(() -> new RacingCar(carName, 3))
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessageContaining("자동차 이름은 5자 이하만 가능합니다");
 
