@@ -11,17 +11,24 @@ public class RacingCars {
 		this.setRacingCars(inputNames, tryCount);
 	}
 
-	public void driveCars(int tryCount) {
+	public RacingResult driveCars(int tryCount) {
+		List<RacingTries> racingTries = new ArrayList<>();
 		for (int i = 0; i < tryCount; i++) {
-			moveCars();
+			racingTries.add(new RacingTries(moveCars()));
 		}
+
+		return new RacingResult(racingTries);
 	}
 
-	private void moveCars() {
+	private List<RacingTry> moveCars() {
+		List<RacingTry> racingTries = new ArrayList<>();
 		for (RacingCar racingCar : racingCars) {
 			RandomNumber randomNumber = new RandomNumber();
 			racingCar.move(randomNumber.getNumber());
+			racingTries.add(new RacingTry(racingCar.getName(), racingCar.getMoveCount()));
 		}
+
+		return racingTries;
 	}
 
 	public List<RacingCar> getRacingCars() {
