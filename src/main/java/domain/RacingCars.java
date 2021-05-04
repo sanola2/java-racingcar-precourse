@@ -35,4 +35,26 @@ public class RacingCars {
 			racingCars.add(new RacingCar(name, tryCount));
 		}
 	}
+
+	public Winners getWinners() {
+		List<RacingCar> winners = new ArrayList<>();
+		winners.add(racingCars.get(0));
+		for (int i = 1; i < racingCars.size(); i++) {
+			this.seekWinner(winners, i);
+		}
+
+		return new Winners(winners);
+	}
+
+	private void seekWinner(List<RacingCar> winners, int i) {
+		if (winners.get(0).getMoveCount() > racingCars.get(i).getMoveCount()) {
+			return;
+		}
+
+		if (winners.get(0).getMoveCount() < racingCars.get(i).getMoveCount()) {
+			winners.clear();
+		}
+
+		winners.add(racingCars.get(i));
+	}
 }
