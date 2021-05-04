@@ -22,7 +22,6 @@ public class RacingTries {
 	}
 
 	private void printPosition(StringBuilder result, RacingTry racingTry) {
-		result.append("-");
 		for(int i = 0; i< racingTry.getPosition(); i++) {
 			result.append("-");
 		}
